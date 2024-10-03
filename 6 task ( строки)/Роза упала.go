@@ -1,26 +1,26 @@
-// Напишите функцию IsPalindrome(input string) bool, 
+// Напишите функцию IsPalindrome(input string) bool,
 // которая принимает строку и проверяет, является ли она палиндромом
 
 package main
-pachage string
 
 import (
 	"strings"
 )
 
-func  IsPalindrome(input string) bool {
+func IsPalindrome(input string) bool {
 
-firstLetter := input[0]
+	input = strings.ToLower(input)
+	input = strings.ReplaceAll(input, " ", "") // убираем пробелы
 
-
-	for _, r := range input {
-		if firstLetter == input[i] {
-			return false 
+	// Проверяем, является ли строка палиндромом
+	length := len(input)
+	for i := 0; i < length/2; i++ {
+		if input[i] != input[length-1-i] {
+			return false
 		}
 	}
-	return true 
+	return true
 }
-
 
 // package main
 
@@ -33,16 +33,16 @@ firstLetter := input[0]
 // 	if x < 0 {
 // 		return false
 // 	}
-	
+
 // 	// Разворачиваем число
 // 	original := x
 // 	reversed := 0
-	
+
 // 	for x > 0 {
 // 		reversed = reversed*10 + x%10
 // 		x /= 10
 // 	}
-	
+
 // 	// Сравниваем оригинальное число с перевернутым
 // 	return original == reversed
 // }
